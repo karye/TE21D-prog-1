@@ -6,7 +6,15 @@ namespace Grunder
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.Clear();
+            Console.Title = "Min terminal";
+            //Console.BackgroundColor = ConsoleColor.Green;
+            //Console.ForegroundColor = ConsoleColor.Yellow;
+
+            Console.WriteLine("Hej, vad heter du?");
+            string namn = Console.ReadLine();
+
+            Console.WriteLine("Hej, du heter visst " + namn);
         }
     }
 }
