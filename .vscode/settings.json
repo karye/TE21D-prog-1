@@ -11,5 +11,6 @@
         "activityBar.background": "#3B1D61",
         "titleBar.activeBackground": "#532888",
         "titleBar.activeForeground": "#FBF9FD"
-    }
+    },
+    "csharp.suppressBuildAssetsNotification": true
 }
