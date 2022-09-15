@@ -25,7 +25,7 @@ namespace Quiz
             }
 
             // Fråga 2 - 
-            Console.Write("VAd är Sveriges närmsta Berg ");
+            Console.Write("Vad heter Sveriges närmsta Berg ");
             svar = Console.ReadLine();
             
             if (svar == "Hammarbybacken")
