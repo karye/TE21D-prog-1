@@ -35,6 +35,7 @@ namespace SlumpFraga
                 rättSvar = "Croissant";
                 break;
             }
+            
             // Be användaren gissa
             string svar = Console.ReadLine();
             if (svar == rättSvar)
