@@ -7,7 +7,8 @@ namespace Sporter
         static void Main(string[] args)
         {
             Console.WriteLine("Mina sporter!");
-
+            
+            // Uppgift 5.2
             //  Fråga först användaren hur många sporter hen vill skriva in.
             Console.Write("Hur många sporter tränar du? ");
             int antalSporter = int.Parse(Console.ReadLine());
