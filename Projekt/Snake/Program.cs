@@ -24,11 +24,11 @@ namespace Snake
 
                 // Läs in en tangent
                 ConsoleKeyInfo key = Console.ReadKey();
-                if (key.Key == ConsoleKey.LeftArrow)
+                if (key.Key == ConsoleKey.A)
                 {
                     vitPos--;
                 }
-                else if (key.Key == ConsoleKey.RightArrow)
+                else if (key.Key == ConsoleKey.D)
                 {
                     vitPos++;
                 }
