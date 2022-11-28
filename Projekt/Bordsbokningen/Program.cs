@@ -26,18 +26,6 @@ namespace Bordsbokningen
             else
             {
                 // Fyll filen med 8 tomma bord
-                // Alternativ 1
-                /* File.WriteAllText(filnamn, tomBokning + "\n" +
-                                tomBokning + "\n" +
-                                tomBokning + "\n" +
-                                tomBokning + "\n" +
-                                tomBokning + "\n" +
-                                tomBokning + "\n" +
-                                tomBokning + "\n" +
-                                tomBokning + "\n"
-                                 ); */
-
-                // Alternativ 2
                 // Fyll arrayens alla platser med texten tombokning
                 for (int i = 0; i < antalBord; i++)
                 {
@@ -48,57 +36,101 @@ namespace Bordsbokningen
                 Console.WriteLine("Fil med bokningar hittades ej. Ny fil skapad.");
             }
 
-            // Skriv ut menyn
-            Console.WriteLine("\n1. Visa alla bord");
-            Console.WriteLine("2. Boka bord");
-            Console.WriteLine("3. Avboka bord");
-            Console.WriteLine("4. Avsluta");
-            Console.Write("Välj ett alternativ: ");
-            string val = Console.ReadLine();
-
-            // Hanterar användarens val
-            switch (val)
+            // Programloopen
+            bool villAvsluta = false;
+            while (!villAvsluta)
             {
-                case "1":
-                    // Visa alla bord
-                    for (int i = 0; i < antalBord; i++)
-                    {
-                        if (bordsInformation[i] == tomBokning)
+
+                // Skriv ut menyn
+                Console.WriteLine("\n1. Visa alla bord");
+                Console.WriteLine("2. Boka bord");
+                Console.WriteLine("3. Avboka bord");
+                Console.WriteLine("4. Avsluta");
+                Console.Write("Välj ett alternativ: ");
+                string val = Console.ReadLine();
+
+                // Hanterar användarens val
+                switch (val)
+                {
+                    case "1":
+                        // Visa alla bord
+                        for (int i = 0; i < antalBord; i++)
                         {
-                            // Ingen bokning
-                            Console.WriteLine($"Bord {i + 1} - Inga gäster");
+                            if (bordsInformation[i] == tomBokning)
+                            {
+                                // Ingen bokning
+                                Console.WriteLine($"Bord {i + 1} - Inga gäster");
+                            }
+                            else
+                            {
+                                // Bokning finns
+                                string rad = bordsInformation[i];
+
+                                // Dela upp raden efter ", "
+                                string[] delar = rad.Split(", ");
+                                string antalGäster = delar[0];
+                                string namn = delar[1];
+
+                                Console.WriteLine($"Bord {i + 1} - Namn: {namn}, antal gäster: {antalGäster}");
+                            }
                         }
-                        else
+                        break;
+
+                    case "2":
+                        // Ändra bokning
+                        // Vilket bod 1-8?
+                        Console.Write("Ange bord (1-8): ");
+                        string bordString = Console.ReadLine();
+                        int bord = 0;
+                        // Det är fel om inte heltal och < 1 eller större > 8
+                        while (!int.TryParse(bordString, out bord) || (bord < 1 || bord > 8))
                         {
-                            // Bokning finns
-                            string rad = bordsInformation[i];
+                            // Skriv felmeddelande
+                            Console.Write("Fel! Vg välj bord 1-8: ");
+                            bordString = Console.ReadLine();
+                        }
+                        // @TODO Vad händer om bordetär redan bokat?
 
-                            // Dela upp raden efter ", "
-                            string[] delar = rad.Split(", ");
-                            string antalGäster = delar[0];
-                            string namn = delar[1];
+                        // Vilket namn?
+                        // @TODO Vad om man matar ett tomt nam?
+                        Console.Write("Ange namn: ");
+                        string namnBord = Console.ReadLine();
 
-                            Console.WriteLine($"Bord {i + 1} - Namn: {namn}, antal gäster: {antalGäster}");
+                        // Antal gäster?
+                        Console.Write("Ange antal gäster: ");
+                        string antalGästerString = Console.ReadLine();
+
+                        // @TODO Vad är max antal gäster?
+                        int antalGäster = 0;
+                        while (!int.TryParse(antalGästerString, out antalGäster))
+                        {
+                            // Skriv felmeddelande
+                            Console.Write("Fel! Vg välj ange ett korrekt tal: ");
+                            bordString = Console.ReadLine();
                         }
 
-                    }
-                    break;
+                        // Nu genomför vi bokningen!
+                        bordsInformation[bord + 1] = antalGäster + "," + namnBord;
 
-                case "2":
-                    // Ändra bokning
-                    break;
+                        // Spara ned hela arrayen i textfilen
+                        File.WriteAllLines(filnamn, bordsInformation);
+                        Console.WriteLine("Bokningen är sparad");
+                        break;
 
-                case "3":
-                    // Ta bort bokning
-                    break;
+                    case "3":
+                        // Ta bort bokning
+                        break;
 
-                case "4":
-                    // Avsluta
-                    break;
+                    case "4":
+                        // Avsluta
+                        villAvsluta = true;
+                        Console.WriteLine("Välkommen tillbaka!");
+                        break;
 
-                default:
-                    Console.WriteLine("Var vänlig välj 1-4");
-                    break;
+                    default:
+                        Console.WriteLine("Var vänlig välj 1-4");
+                        break;
+                }
             }
         }
     }
