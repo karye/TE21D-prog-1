@@ -50,6 +50,9 @@ namespace Bordsbokningen
                 string val = Console.ReadLine();
 
                 // Hanterar användarens val
+                int antalGäster = 0;
+                int bord = 0;
+                string namn = "";
                 switch (val)
                 {
                     case "1":
@@ -68,8 +71,8 @@ namespace Bordsbokningen
 
                                 // Dela upp raden efter ", "
                                 string[] delar = rad.Split(", ");
-                                string antalGäster = delar[0];
-                                string namn = delar[1];
+                                antalGäster = int.Parse(delar[0]);
+                                namn = delar[1];
 
                                 Console.WriteLine($"Bord {i + 1} - Namn: {namn}, antal gäster: {antalGäster}");
                             }
@@ -78,10 +81,10 @@ namespace Bordsbokningen
 
                     case "2":
                         // Ändra bokning
-                        // Vilket bod 1-8?
+                        // Vilket bord 1-8?
                         Console.Write("Ange bord (1-8): ");
                         string bordString = Console.ReadLine();
-                        int bord = 0;
+
                         // Det är fel om inte heltal och < 1 eller större > 8
                         while (!int.TryParse(bordString, out bord) || (bord < 1 || bord > 8))
                         {
@@ -89,7 +92,7 @@ namespace Bordsbokningen
                             Console.Write("Fel! Vg välj bord 1-8: ");
                             bordString = Console.ReadLine();
                         }
-                        // @TODO Vad händer om bordetär redan bokat?
+                        // @TODO Vad händer om bordet är redan bokat?
 
                         // Vilket namn?
                         // @TODO Vad om man matar ett tomt nam?
@@ -101,7 +104,7 @@ namespace Bordsbokningen
                         string antalGästerString = Console.ReadLine();
 
                         // @TODO Vad är max antal gäster?
-                        int antalGäster = 0;
+                        antalGäster = 0;
                         while (!int.TryParse(antalGästerString, out antalGäster))
                         {
                             // Skriv felmeddelande
