@@ -97,23 +97,21 @@ namespace Bordsbokningen
                         // Vilket namn?
                         // @TODO Vad om man matar ett tomt nam?
                         Console.Write("Ange namn: ");
-                        string namnBord = Console.ReadLine();
+                        namn = Console.ReadLine();
 
                         // Antal gäster?
                         Console.Write("Ange antal gäster: ");
-                        string antalGästerString = Console.ReadLine();
 
                         // @TODO Vad är max antal gäster?
                         antalGäster = 0;
-                        while (!int.TryParse(antalGästerString, out antalGäster))
+                        while (!int.TryParse(Console.ReadLine(), out antalGäster))
                         {
                             // Skriv felmeddelande
                             Console.Write("Fel! Vg välj ange ett korrekt tal: ");
-                            bordString = Console.ReadLine();
                         }
 
                         // Nu genomför vi bokningen!
-                        bordsInformation[bord + 1] = antalGäster + "," + namnBord;
+                        bordsInformation[bord + 1] = antalGäster + "," + namn;
 
                         // Spara ned hela arrayen i textfilen
                         File.WriteAllLines(filnamn, bordsInformation);
