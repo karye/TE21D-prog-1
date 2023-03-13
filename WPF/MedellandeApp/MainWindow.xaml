@@ -5,19 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MedellandeApp"
         mc:Ignorable="d"
-        Title="Medellanden" Height="300" Width="500"
+        Title="Medellanden" Height="320" Width="450"
         Background="#EEE">
     <StackPanel Margin="5">
         <Label Margin="5" FontSize="24">Meddelande</Label>
         <StackPanel Margin="5" Orientation="Horizontal">
             <Label Margin="5" Width="100">Ange epost</Label>
-            <TextBox Margin="5" Width="300" />
+            <TextBox Margin="5" Width="300" Name="ruta" />
         </StackPanel>
         <StackPanel Margin="5" Orientation="Horizontal">
             <Label Margin="5" Width="100">Ange texten</Label>
-            <TextBox Margin="5" Width="300" Height="100" />
+            <TextBox Margin="5" Width="300" Height="100" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" Name="rutaTexten" />
         </StackPanel>
-        <Button Margin="5">Skicka!</Button>
-        <TextBox Margin="5" >Inga meddelande...</TextBox>
+        <Button Margin="5" Click="KlickSkicka">Skicka!</Button>
+        <TextBox Margin="5" Name="rutaStatus" >Inga meddelande...</TextBox>
     </StackPanel>
 </Window>
