@@ -1,0 +1,25 @@
+﻿<Window x:Class="BrännbollRäknare.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BrännbollRäknare"
+        mc:Ignorable="d"
+        Title="Räkna poäng" Height="450" Width="800"
+        SizeToContent="WidthAndHeight">
+    <StackPanel Margin="10">
+        <Label FontSize="18">Brännbollsräknare</Label>
+        <StackPanel Orientation="Horizontal">
+            <Label Width="50" Margin="5" Padding="5">Lag inne</Label>
+            <TextBox Name="rutaInne" Width="50" Margin="5" Padding="5"></TextBox>
+            <Label Width="50" Margin="5" Padding="5">Lag ute</Label>
+            <TextBox Name="rutaUte" Width="50" Margin="5" Padding="5"></TextBox>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <Button Click="KlickFrivarv" Margin="5" Padding="5" Width="75">Frivarv</Button>
+            <Button Click="KlickBränning" Margin="5" Padding="5" Width="75">Bränning</Button>
+            <Button Click="KlickLyra" Margin="5" Padding="5" Width="75">Lyra</Button>
+            <Button Click="KlickVarv" Margin="5" Padding="5" Width="75">Varv</Button>
+        </StackPanel>
+    </StackPanel>
+</Window>

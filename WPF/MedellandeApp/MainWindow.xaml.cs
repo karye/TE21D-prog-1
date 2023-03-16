@@ -28,7 +28,11 @@ namespace MedellandeApp
             InitializeComponent();
         }
 
-        // Hantera klick Skicka
+        /// <summary>
+        /// Hantera klick på knappen Skicka
+        /// </summary>
+        /// <param name="sender">Vilket element som klickats på</param>
+        /// <param name="e">Eventuella argument</param>
         private void KlickSkicka(object sender, RoutedEventArgs e)
         {
             // Läsa av epostadressen
