@@ -14,6 +14,7 @@
             <TextBox Name="rutaInne" Width="50" Margin="5" Padding="5"></TextBox>
             <Label Width="50" Margin="5" Padding="5">Lag ute</Label>
             <TextBox Name="rutaUte" Width="50" Margin="5" Padding="5"></TextBox>
+            <TextBox Name="rutaKlockan" Width="50" Margin="50 5 0 5" Padding="5"></TextBox>
         </StackPanel>
         <StackPanel Orientation="Horizontal">
             <Button Click="KlickFrivarv" Margin="5" Padding="5" Width="75">Frivarv</Button>
@@ -21,5 +22,6 @@
             <Button Click="KlickLyra" Margin="5" Padding="5" Width="75">Lyra</Button>
             <Button Click="KlickVarv" Margin="5" Padding="5" Width="75">Varv</Button>
         </StackPanel>
+        <TextBox Name="rutaHistorik" Width="Auto" Margin="5" Padding="5" Height="150" TextWrapping="Wrap" IsReadOnly="True" VerticalScrollBarVisibility="Auto"></TextBox>
     </StackPanel>
 </Window>
