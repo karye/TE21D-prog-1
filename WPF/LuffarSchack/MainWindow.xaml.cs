@@ -28,15 +28,7 @@ namespace LuffarSchack
             InitializeComponent();
 
             // Rensa spelplanen
-            knapp1.Content = "";
-            knapp2.Content = "";
-            knapp3.Content = "";
-            knapp4.Content = "";
-            knapp5.Content = "";
-            knapp6.Content = "";
-            knapp7.Content = "";
-            knapp8.Content = "";
-            knapp9.Content = "";
+            omstart();
         }
 
         // Hantera klick på startknappen
@@ -50,9 +42,6 @@ namespace LuffarSchack
         {
             // Vem skickade "eventet"?
             Button knapp = (Button)sender;
-
-            // Provar läsa av knappens namn
-            //Console.WriteLine(knapp.Name);
 
             // Prova ändrar vad som står på knappen
             knapp.FontSize = 90;
@@ -69,10 +58,45 @@ namespace LuffarSchack
                 spelareTur = true;
             }
 
-            // Är första raden XXX?
-            if (knapp1.Content == "X" && knapp2.Content == "X" && knapp3.Content == "X")
+            // Har spelare 1 vunnit?
+            HarVunnit("X");
+
+            // Har spelare 2 vunnit?
+            HarVunnit("O");
+        }
+
+        // En metod för att återställa spelet
+        public void omstart()
+        {
+            // Tömma rutorna
+            knapp1.Content = "";
+            knapp2.Content = "";
+            knapp3.Content = "";
+            knapp4.Content = "";
+            knapp5.Content = "";
+            knapp6.Content = "";
+            knapp7.Content = "";
+            knapp8.Content = "";
+            knapp9.Content = "";
+
+            // Spelare 1 börjar (X)
+            spelareTur = true;
+        }
+
+        // Har någon spelare vunnit?
+        public void HarVunnit(string tecken)
+        {
+            if (knapp1.Content == tecken && knapp2.Content == tecken && knapp3.Content == tecken ||
+                knapp4.Content == tecken && knapp5.Content == tecken && knapp6.Content == tecken ||
+                knapp7.Content == tecken && knapp8.Content == tecken && knapp9.Content == tecken || 
+                knapp1.Content == tecken && knapp4.Content == tecken && knapp7.Content == tecken ||
+                knapp2.Content == tecken && knapp5.Content == tecken && knapp8.Content == tecken ||
+                knapp3.Content == tecken && knapp6.Content == tecken && knapp9.Content == tecken ||
+                knapp1.Content == tecken && knapp5.Content == tecken && knapp9.Content == tecken ||
+                knapp3.Content == tecken && knapp5.Content == tecken && knapp7.Content == tecken)
             {
                 MessageBox.Show("Spelare 1 har vunnit!");
+                omstart();
             }
         }
     }
